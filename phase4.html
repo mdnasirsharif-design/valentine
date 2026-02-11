@@ -192,6 +192,31 @@
             }, { once: true });
         });
     });
+        <script>
+    // Jaise hi page load hoga, ye chalega
+    window.addEventListener('load', () => {
+        const audio = document.getElementById('bgMusic');
+        
+        // 1. Pehle bina touch ke bajane ki koshish
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                console.log("Music started!");
+            }).catch(error => {
+                // 2. Agar blocked hai, toh pehle touch/scroll par baj jayega
+                const autoPlayMusic = () => {
+                    audio.play();
+                    document.removeEventListener('touchstart', autoPlayMusic);
+                    document.removeEventListener('click', autoPlayMusic);
+                    document.removeEventListener('scroll', autoPlayMusic);
+                };
+                document.addEventListener('touchstart', autoPlayMusic);
+                document.addEventListener('click', autoPlayMusic);
+                document.addEventListener('scroll', autoPlayMusic);
+            });
+    }
+    });
 </script>
 </body> 
 </html>
