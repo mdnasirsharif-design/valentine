@@ -167,5 +167,15 @@
             setTimeout(() => heart.remove(), 7000); 
         } 
     </script> 
+    <script>
+    window.addEventListener('load', () => {
+        const audio = document.querySelector('audio');
+        audio.play().catch(() => {
+            document.addEventListener('click', () => {
+                audio.play();
+            }, { once: true });
+        });
+    });
+</script>
 </body> 
 </html>
