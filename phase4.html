@@ -101,24 +101,8 @@
         @media (max-width: 1000px) { 
             .photos-wrap { flex-direction: column; align-items: center; } 
             .side-sticker { display: none; } 
-            .gallery-container { flex-direction: column; }
-            /* --- Laptop vs Mobile Logic --- */
-@media (max-width: 600px) {
-    .container, .glass-box, .playlist-container, .card, .content {
-        width: 92% !important; 
-        max-width: none !important;
-        margin: 15px auto !important;
-        padding: 15px !important;
-    }
-    .polaroid {
-        width: 100% !important;
-        max-width: 280px !important;
-        transform: rotate(0deg) !important;
-        margin: 10px auto !important;
-    }
-    h1 { font-size: 1.6rem !important; }
-    p { font-size: 1rem !important; }
-}        } 
+            .gallery-container { flex-direction: column; } 
+        } 
     </style> 
 </head> 
 <body> 
@@ -135,20 +119,24 @@
 
         <img src="shoulder.png" class="shoulder-sticker" alt="shoulder"> 
 
-            <div class="gallery-container" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-        <img src="flower.png" class="side-sticker" alt="flower">
+        <div class="gallery-container"> 
+            <img src="flower.png" class="side-sticker" alt="flower"> 
 
-        <div class="photos-wrap" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="polaroid" style="--r: -4deg;"><img src="pic1.jpg"><p>Your smile is my home ✨</p></div>
-            <div class="polaroid" style="--r: 2deg;"><img src="pic2.jpg"><p>You're my favorite vibe ❤️</p></div>
-            <div class="polaroid" style="--r: -3deg;"><img src="pic3.jpg"><p>Always & Forever 🫂</p></div>
-        </div>
+            <div class="photos-wrap"> 
+                <div class="polaroid" style="--r: -4deg;"><img src="pic1.jpg"><p>Your smile is my home ✨</p></div> 
+                <div class="polaroid" style="--r: 2deg;"><img src="pic2.jpg"><p>You're my favorite vibe ❤️</p></div> 
+                <div class="polaroid" style="--r: -3deg;"><img src="pic3.jpg"><p>Always & Forever 🫶</p></div> 
+            </div> 
 
-        <img src="hold.png" class="side-sticker" alt="hold" style="width: 80px; margin-top: 10px;">
-    </div> <img src="hand.png" class="hand-sticker" alt="hand" style="display: block; margin: 30px auto; width: 180px;">
+            <img src="hold.png" class="side-sticker" alt="hold"> 
+        </div> 
 
-    <button class="btn-next" onclick="window.location.href='phase5.html'" style="display: block; margin: 0 auto 50px auto;">Next ✨</button>        
-  <script> 
+        <img src="hand.png" class="hand-sticker" alt="hand"> 
+
+        <button class="btn-next" onclick="window.location.href='phase5.html'">Next ✨</button> 
+    </div> 
+
+    <script> 
         const music = document.getElementById('bgMusic'); 
 
         function playInstant() { 
@@ -179,40 +167,5 @@
             setTimeout(() => heart.remove(), 7000); 
         } 
     </script> 
-    <script>
-    window.addEventListener('load', () => {
-        const audio = document.querySelector('audio');
-        audio.play().catch(() => {
-            document.addEventListener('click', () => {
-                audio.play();
-            }, { once: true });
-        });
-    });
-        <script>
-    // Jaise hi page load hoga, ye chalega
-    window.addEventListener('load', () => {
-        const audio = document.getElementById('bgMusic');
-        
-        // 1. Pehle bina touch ke bajane ki koshish
-        const playPromise = audio.play();
-
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                console.log("Music started!");
-            }).catch(error => {
-                // 2. Agar blocked hai, toh pehle touch/scroll par baj jayega
-                const autoPlayMusic = () => {
-                    audio.play();
-                    document.removeEventListener('touchstart', autoPlayMusic);
-                    document.removeEventListener('click', autoPlayMusic);
-                    document.removeEventListener('scroll', autoPlayMusic);
-                };
-                document.addEventListener('touchstart', autoPlayMusic);
-                document.addEventListener('click', autoPlayMusic);
-                document.addEventListener('scroll', autoPlayMusic);
-            });
-    }
-    });
-</script>
 </body> 
 </html>
