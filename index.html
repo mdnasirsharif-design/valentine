@@ -76,6 +76,12 @@
         @keyframes load { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
         /* --- Laptop vs Mobile Logic --- */
 @media (max-width: 600px) {
+    body {
+        background-attachment: scroll !important; 
+        background-position: center !important;
+        overflow-x: hidden !important;
+    }
+
     .container, .glass-box, .playlist-container, .card, .content {
         width: 92% !important; 
         max-width: none !important;
