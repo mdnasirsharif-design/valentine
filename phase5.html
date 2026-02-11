@@ -111,6 +111,23 @@
         }
         .feather-fur.show { left: 50%; transform: translate(-50%, -50%) rotate(0deg); }
         .feather-fur.exit { left: -120%; transform: translate(-50%, -50%) rotate(-30deg); opacity: 0; }
+        /* --- Laptop vs Mobile Logic --- */
+@media (max-width: 600px) {
+    .container, .glass-box, .playlist-container, .card, .content {
+        width: 92% !important; 
+        max-width: none !important;
+        margin: 15px auto !important;
+        padding: 15px !important;
+    }
+    .polaroid {
+        width: 100% !important;
+        max-width: 280px !important;
+        transform: rotate(0deg) !important;
+        margin: 10px auto !important;
+    }
+    h1 { font-size: 1.6rem !important; }
+    p { font-size: 1rem !important; }
+}   
     </style>
 </head>
 <body>
