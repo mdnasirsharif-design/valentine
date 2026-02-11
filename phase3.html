@@ -74,7 +74,24 @@
         .btn-reset { background: white; color: var(--deep-pink); border: 2px solid var(--deep-pink); }
         .btn-next { background: var(--deep-pink); color: white; border: 2px solid white; display: none; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2); }
-    </style>
+        /* --- Laptop vs Mobile Logic --- */
+@media (max-width: 600px) {
+    .container, .glass-box, .playlist-container, .card, .content {
+        width: 92% !important; 
+        max-width: none !important;
+        margin: 15px auto !important;
+        padding: 15px !important;
+    }
+    .polaroid {
+        width: 100% !important;
+        max-width: 280px !important;
+        transform: rotate(0deg) !important;
+        margin: 10px auto !important;
+    }
+    h1 { font-size: 1.6rem !important; }
+    p { font-size: 1rem !important; }
+}  
+   </style>
 </head>
 <body onmousedown="startMusic()">
 
