@@ -74,7 +74,23 @@
         .loading-box { width: 300px; height: 14px; background: #ffe5ec; border-radius: 10px; margin: 25px 0; overflow: hidden; border: 1.5px solid #ffc2d1; }
         .progress-fill { width: 100%; height: 100%; background: var(--pink); animation: load 2.5s ease-in-out infinite; }
         @keyframes load { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-    </style>
+        /* --- Laptop vs Mobile Logic --- */
+@media (max-width: 600px) {
+    .container, .glass-box, .playlist-container, .card, .content {
+        width: 92% !important; 
+        max-width: none !important;
+        margin: 15px auto !important;
+        padding: 15px !important;
+    }
+    .polaroid {
+        width: 100% !important;
+        max-width: 280px !important;
+        transform: rotate(0deg) !important;
+        margin: 10px auto !important;
+    }
+    h1 { font-size: 1.6rem !important; }
+    p { font-size: 1rem !important; }
+}    </style>
 </head>
 <body>
 
